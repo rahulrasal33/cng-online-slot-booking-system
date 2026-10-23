@@ -193,6 +193,47 @@ body {
   justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .auth-container {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 100svh;
+    padding: 92px 16px 32px;
+  }
+
+  .role-buttons {
+    width: min(100%, 520px);
+  }
+
+  .auth-box {
+    box-sizing: border-box;
+    width: min(100%, 520px);
+  }
+
+  .input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 32px 20px;
+  }
+
+  .form-fields {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .common-fields,
+  .seller-fields {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .common-fields, .seller-fields {
   flex: 1;
   display: flex;

@@ -208,6 +208,94 @@ nav a {
   font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px 12px;
+    background: rgba(13, 17, 23, 0.96);
+  }
+
+  .navbar .container {
+    min-width: 0;
+    padding: 0;
+    gap: 8px;
+  }
+
+  .navbar .logo {
+    flex: 0 1 auto;
+    min-width: 0;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .navbar .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 12px;
+    right: 12px;
+    width: auto;
+    padding: 12px;
+    border: 1px solid #263244;
+    background: #0d1117;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  }
+
+  .navbar .nav-links.active {
+    display: block;
+  }
+
+  .navbar .nav-links ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar .nav-links li {
+    margin: 0;
+  }
+
+  .navbar .nav-links a {
+    display: block;
+    margin: 0;
+    padding: 12px;
+  }
+
+  .navbar .buttons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .navbar .buttons a {
+    padding: 8px 9px;
+    font-size: 13px;
+  }
+
+  .navbar .hamburger {
+    display: flex;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: 0;
+    background: transparent;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar .logo {
+    font-size: 0.9rem;
+  }
+
+  .navbar .buttons a {
+    padding: 7px 6px;
+    font-size: 12px;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -267,7 +355,7 @@ nav a {
   <div class="container">
     <div class="logo">BookMyCNG</div>
 
-    <nav class="nav-links">
+    <nav class="nav-links" id="primaryNavigation" onclick="if (event.target.closest('a')) { this.classList.remove('active'); const button = this.closest('.container').querySelector('.hamburger'); button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-label', 'Open navigation menu'); }">
       <ul>
        <%
  
@@ -346,20 +434,12 @@ nav a {
 
 
     <!-- Hamburger menu -->
-    <div class="hamburger">
+    <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNavigation" onclick="const menu = this.closest('.container').querySelector('.nav-links'); const expanded = menu.classList.toggle('active'); this.setAttribute('aria-expanded', expanded); this.setAttribute('aria-label', expanded ? 'Close navigation menu' : 'Open navigation menu');">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
   </div>
 </header>
-<script>
-  // Example: check if token exists in localStorage
-  const token = localStorage.getItem("jwtToken");
-
-  if (token) {
-    document.getElementById("authButtons").style.display = "none";
-  }
-</script>
 </body>
 </html>

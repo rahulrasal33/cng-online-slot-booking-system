@@ -165,6 +165,47 @@ body {
   background: #22c55e;
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  .auth-container {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 100svh;
+    padding: 92px 16px 32px;
+  }
+
+  .role-buttons {
+    width: min(100%, 520px);
+  }
+
+  .auth-box {
+    box-sizing: border-box;
+    width: min(100%, 520px);
+    flex-direction: column;
+  }
+
+  .input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 36px 22px;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .form-fields {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .common-fields,
+  .seller-fields {
+    width: 100%;
+    min-width: 0;
+  }
+}
 .divider {
   display: flex;
   align-items: center;

@@ -1219,6 +1219,181 @@ color:green;
       color: #9ca3af;
       font-size: 14px;
     }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 100svh;
+        height: auto;
+        padding: 88px 18px 36px;
+        gap: 24px;
+      }
+
+      .hero-text {
+        width: 100%;
+        max-width: 620px;
+        height: auto;
+      }
+
+      .hero-text h1 {
+        display: block;
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        line-height: 1.15;
+        text-align: center;
+      }
+
+      .hero-text p {
+        display: block;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-buttons button {
+        max-width: 100%;
+      }
+
+      .stats {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .stats div {
+        flex: 1 1 26%;
+        min-width: 85px;
+        padding-top: 22px;
+        font-size: 15px;
+      }
+
+      .stations-section,
+      .pricing-section,
+      .contact-section {
+        padding: 44px 16px;
+      }
+
+      .stations-grid,
+      .service-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        width: 100%;
+      }
+
+      .station-card,
+      .service-card,
+      .card,
+      .contact-form,
+      .contact-info {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .station-header {
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .station-header h3 {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .station-info,
+      .status {
+        flex-wrap: wrap;
+      }
+
+      .services {
+        width: 100%;
+        padding: 56px 16px 0;
+      }
+
+      .services h2,
+      .stations-header h2,
+      .pricing-section h2,
+      .contact-section h2 {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+        line-height: 1.2;
+      }
+
+      .pricing-cards {
+        gap: 18px;
+      }
+
+      .card {
+        max-width: 440px;
+        padding: 24px;
+      }
+
+      .contact-container {
+        gap: 24px;
+      }
+
+      .contact-form {
+        padding: 22px 16px;
+      }
+
+      .footer-container {
+        width: 100%;
+        gap: 16px;
+      }
+
+      .footer-about {
+        margin-right: 0;
+      }
+
+      .footer-bottom {
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-policy {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .footer-policy a {
+        margin-left: 0;
+      }
+
+      .ChatContainer.chat-toggle {
+        right: 8px;
+        bottom: 8px;
+        width: 64px;
+        height: 64px;
+      }
+
+      .ChatContainer.chat-toggle spline-viewer {
+        width: 64px;
+        height: 64px;
+      }
+
+      .chatbot-container {
+        right: 8px;
+        bottom: 80px;
+        width: calc(100vw - 16px);
+        max-height: calc(100dvh - 100px);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+
+      .hero-buttons button {
+        padding: 10px 12px;
+      }
+
+      .station-card {
+        padding: 16px;
+      }
+    }
   </style>
   
   <script>

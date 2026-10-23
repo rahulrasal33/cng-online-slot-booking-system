@@ -440,6 +440,83 @@ which cannot be safely inferred automatically from a truncated conversation.
       color: #dc2626;
       margin-bottom: 20px;
     }
+
+    @media (max-width: 768px) {
+      body {
+        display: block;
+        min-height: 100svh;
+      }
+
+      .main {
+        box-sizing: border-box;
+        height: auto;
+        min-height: 100svh;
+        padding: 76px 12px 24px;
+      }
+
+      .container-bookings {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 12px 0;
+        padding: 20px 14px;
+      }
+
+      .progressbar {
+        margin: 20px 0 28px;
+        padding: 0;
+      }
+
+      .progressbar li {
+        font-size: 11px;
+      }
+
+      .progressbar li:before {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+      }
+
+      .progressbar li:after {
+        top: 15px;
+      }
+
+      .slots {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      }
+
+      .btns {
+        gap: 10px;
+      }
+
+      .btns button {
+        flex: 1;
+        padding: 10px 12px;
+      }
+
+      .checkout-container {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .summary,
+      .payment {
+        padding: 22px 16px;
+      }
+
+      #qrcode img {
+        width: min(220px, 100%);
+        height: auto;
+      }
+
+      .modal-content {
+        box-sizing: border-box;
+        padding: 28px 20px;
+      }
+
+      .modal-content h2 {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
 
