@@ -1,0 +1,9 @@
+.git
+.vscode
+.settings
+build
+tomcat
+tomcat.zip
+.classpath
+.project
+*.log

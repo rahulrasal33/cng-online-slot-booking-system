@@ -120,6 +120,20 @@ $env:GEMINI_API_KEY = "your_gemini_api_key"
 
 Do not commit real credentials or API keys. If previously exposed credentials were active, revoke or rotate them.
 
+## Deploying on Render
+
+1. Push the project to GitHub, then create a **Web Service** on Render connected to the repository.
+2. Select **Docker** as the runtime and use the repository's `Dockerfile`.
+3. Set these environment variables in Render:
+   - `DB_URL`: JDBC URL for a publicly reachable MySQL database
+   - `DB_USER`: database username
+   - `DB_PASS`: database password
+   - `JWT_SECRET`: a random secret at least 32 bytes long
+   - `GEMINI_API_KEY`: optional; only needed for the chatbot
+4. Ensure the database schema and tables are set up before using the application.
+
+The Docker image builds the Java sources and runs the app on Tomcat 9, matching its `javax.servlet` API. It binds Tomcat to Render's `PORT` environment variable.
+
 ## Quick Fix Checklist
 
 - [ ] Clean and rebuild project

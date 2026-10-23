@@ -1,14 +1,17 @@
-# Use official Tomcat 10 with Java 17
-FROM tomcat:10.1-jdk17
+FROM tomcat:9.0-jdk17-temurin AS build
 
-# Remove default webapps (ROOT, examples, docs)
+WORKDIR /app
+COPY src/main/java/ ./src/main/java/
+COPY src/main/webapp/WEB-INF/lib/ ./WEB-INF/lib/
+RUN mkdir -p ./WEB-INF/classes \
+    && javac -encoding UTF-8 -cp "./WEB-INF/lib/*" -d ./WEB-INF/classes $(find src/main/java -name "*.java")
+
+FROM tomcat:9.0-jre17-temurin
+
 RUN rm -rf /usr/local/tomcat/webapps/*
+COPY src/main/webapp/ /usr/local/tomcat/webapps/ROOT/
+COPY --from=build /app/WEB-INF/classes/ /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/
+RUN rm -f /usr/local/tomcat/webapps/ROOT/WEB-INF/lib/javax.servlet-api-*.jar
 
-# Copy your app into Tomcat webapps
-COPY ./ /usr/local/tomcat/webapps/ROOT/
-
-# Expose the default Tomcat port
 EXPOSE 8080
-
-# Start Tomcat
-CMD ["catalina.sh", "run"]
+CMD ["sh", "-c", "sed -i \"s/port=\\\"8080\\\"/port=\\\"${PORT:-8080}\\\"/\" \"$CATALINA_HOME/conf/server.xml\" && exec catalina.sh run"]
