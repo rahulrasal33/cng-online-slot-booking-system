@@ -1,0 +1,11 @@
+/build/
+/target/
+/bin/
+/tomcat/
+/tomcat.zip
+/.vscode/
+.env
+.env.*
+*.log
+Thumbs.db
+.DS_Store
