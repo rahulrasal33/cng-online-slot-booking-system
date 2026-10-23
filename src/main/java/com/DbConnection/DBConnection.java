@@ -21,7 +21,8 @@ public class DBConnection {
 
             String dbPass = System.getenv("DB_PASS");
             if (dbPass == null || dbPass.trim().isEmpty()) {
-                throw new IllegalStateException("DB_PASS environment variable is not set.");
+                System.err.println("Database connection unavailable: DB_PASS environment variable is not set.");
+                return null;
             }
 
             con = DriverManager.getConnection(dbUrl, dbUser, dbPass);

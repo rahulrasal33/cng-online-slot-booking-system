@@ -21,7 +21,13 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-<script>AOS.init();</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.AOS) {
+      AOS.init();
+    }
+  });
+</script>
 
   <script>
     // Load navbar.html into #navbar
@@ -41,7 +47,7 @@
     
 
 // JS to trigger animation when section enters viewport
-const sections = document.getElementsByClassName('.pricing-section');
+const sections = document.querySelectorAll('.pricing-section');
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
